@@ -2,20 +2,21 @@
     "name": "mianxiu.mail",
     "version": "1.0.0",
     "private": true,
-    "description": "use leanCloud & SendGrid",
+    "description": "use leanCloud & SendGrid to push mail",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js"
-    },
-    "engines": {
-        "node": "8.x"
+      "start": "node server.js",
+      "dev": "nodemon server.js -- "
     },
     "dependencies": {
-        "express": "4.12.3",
-        "leanengine": "^3.0.2",
-        "leancloud-storage": "^3.3.1",
-        "@sendgrid/mail":"^6.21",
-        "leancloud-storage": "^3.0.0",
-        "leanengine": "^3.0.0"
+      "leancloud-storage": "^3.0.0",
+      "leanengine": "^3.0.0",
+      "@sendgrid/mail":"^6.21",
+    },
+    "devDependencies": {
+      "nodemon": "^1.11.0"
+    },
+    "engines": {
+      "node": "8.x"
     }
-}
+  }
