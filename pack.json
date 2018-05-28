@@ -10,8 +10,8 @@
     },
     "dependencies": {
       "leancloud-storage": "^3.0.0",
-      "leanengine": "^3.0.0",
-     // "@sendgrid/mail":"6.2.1"
+      "leanengine": "^3.0.0"
+    
     },
     "devDependencies": {
       "nodemon": "^1.11.0"
