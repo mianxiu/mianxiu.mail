@@ -11,7 +11,7 @@ function sendMail(subject,html) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
         to: 'mianxiu@mianxiu.me',
-        from: 'mianxiu@mianxiu.me',
+        from: 'notification@mianxiu.me',
         subject: subject,
         text: 'and easy to do anywhere, even with Node.js',
         html: html,
