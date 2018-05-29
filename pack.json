@@ -9,6 +9,7 @@
   "dependencies": {
       "express": "4.12.3",
       "leanengine": "^3.0.2",
-      "leancloud-storage": "^3.3.1"
+      "leancloud-storage": "^3.3.1",
+      "@sendgrid/mail":"6.2.1"
   }
 }
