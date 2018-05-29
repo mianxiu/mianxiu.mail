@@ -86,7 +86,7 @@ function PushMailTips(pushMail) {
 
                         html += li
                 }
-                
+
                  sendMail(a,html)     
             }
 
@@ -109,7 +109,7 @@ function PushMailTips(pushMail) {
 // 定时拉取
 setInterval(()=>{
     PushMailTips('mianxiu@mianxiu.me')
-},1500000)
+},900000)
 
 
 
