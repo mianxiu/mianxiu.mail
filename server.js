@@ -65,7 +65,9 @@ function PushMailTips(pushMail) {
         let query = AV.Query.and(startDateQuery, endDateQuery);
         query.find().then(r => {
             if (r.length > 0) {
-                let e = r[r.length - 1]             
+                let e = r[r.length - 1]         
+                
+                 // writeLastPost('5b0b99ae2f301e00381813c5', e.createdAt)
                 let a = '你的BLOG有' + (r.length) + '条新留言'
                 let html = ''
                 for(i of r){
@@ -84,9 +86,8 @@ function PushMailTips(pushMail) {
 
                         html += li
                 }
-
-                 sendMail(a,html)
-                // writeLastPost('5b0b99ae2f301e00381813c5', e.createdAt)
+                
+                 sendMail(a,html)     
             }
 
         }, function (error) {
