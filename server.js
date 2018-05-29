@@ -4,10 +4,12 @@ const sgMail = require('@sendgrid/mail');
 
 const domin = "//mianxiu.me"
 
+// 监听端口
 var app = express();
 app.use(AV.express());
 app.listen(process.env.LEANCLOUD_APP_PORT);
 
+// 初始化
 AV.init({
     appId: process.env.LEANCLOUD_APP_ID,
     appKey: process.env.LEANCLOUD_APP_KEY,
@@ -63,10 +65,8 @@ function PushMailTips(pushMail) {
         let query = AV.Query.and(startDateQuery, endDateQuery);
         query.find().then(r => {
             if (r.length > 0) {
-                let e = r[r.length - 1]
-               // writeLastPost('5b0b99ae2f301e00381813c5', e.createdAt)
+                let e = r[r.length - 1]             
                 let a = '你的BLOG有' + (r.length) + '条新留言'
-
                 let html = ''
                 for(i of r){
                     let attr = i.attributes
@@ -84,7 +84,9 @@ function PushMailTips(pushMail) {
 
                         html += li
                 }
-                // sendMail(a,html)
+
+                 sendMail(a,html)
+                 writeLastPost('5b0b99ae2f301e00381813c5', e.createdAt)
             }
 
         }, function (error) {
@@ -102,7 +104,12 @@ function PushMailTips(pushMail) {
     }
     GetCount()
 }
-PushMailTips('mianxiu@mianxiu.me')
+
+// 定时拉取
+setInterval(()=>{
+    PushMailTips('mianxiu@mianxiu.me')
+},)
+
 
 
 
