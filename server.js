@@ -62,7 +62,7 @@ function PushMailTips(pushMail) {
             if (r.length > 0) {
                 let e = r[r.length - 1]
                // writeLastPost('5b0b99ae2f301e00381813c5', e.createdAt)
-                let a = '你有' + (r.length) + '条新留言'
+                let a = '你的BLOG有' + (r.length) + '条新留言'
 
                 let html = ''
                 for(i of r){
@@ -72,15 +72,16 @@ function PushMailTips(pushMail) {
                     let c = attr.comments
                     let n = attr.usernick
 
-                    let li = `<div style="background-color:#f8f8f8;border:1px solid #ececec;border-radius:4px;padding:10px;">
-                        <a style="    display: inline-block; color: #ffffffeb;text-decoration: none;padding: 10px;background-color: #2a96d8;
+                    let li = `<div style="marign:10px 0;background-color:#f8f8f8;border:1px solid #ececec;border-radius:4px;padding:10px;">
+                        <a style="border-radius: 4px;display: inline-block; color: #ffffff;text-decoration: none;padding: 10px;background-color: #2a96d8;
                         margin: 5px;" href="${u}">${decodeURI(attr.url.split('/')[5])}</a>
                         <span>${n}</span>："${c}"
+                        <span style="margin:0 10px;" >${d}</span>
                         </div>`
 
                         html += li
                 }
-                sendMail(a,html)
+                // sendMail(a,html)
             }
 
         }, function (error) {
