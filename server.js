@@ -2,15 +2,17 @@ const express = require('express');
 const AV = require('leanengine');
 const sgMail = require('@sendgrid/mail');
 
+const domin = "//mianxiu.me"
+
 // sendgrid API 推送邮件，免费版每日100条推送额度
-function sendMail(subject) {
+function sendMail(subject,html) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
         to: 'mianxiu@mianxiu.me',
         from: 'mianxiu@mianxiu.me',
         subject: subject,
         text: 'and easy to do anywhere, even with Node.js',
-        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+        html: html,
     };
     sgMail.send(msg);
 }
@@ -58,10 +60,23 @@ function PushMailTips(pushMail) {
             if (r.length > 0) {
                 let e = r[r.length - 1]
                // writeLastPost('5b0b99ae2f301e00381813c5', e.createdAt)
-                console.log()
-                let a = '有' + (r.length) + '条新留言'
-                //
-                sendMail(a)
+                let a = '你有' + (r.length) + '条新留言'
+
+                let html
+                for(i of r){
+                    let attr = i.attributes
+                    let d = i.createdAt
+                    let u = domin + attr.url
+                    let c = attr.comments
+                    let n = attr.usernick
+
+                    let li = `<div>
+                        <a href=${u}>${decodeURI(attr.url.split('/')[5])}</a>
+                        <span>${n}</span>："${c}"
+                        </div>`
+                        html += li
+                }
+                sendMail(a,html)
             }
 
         }, function (error) {
