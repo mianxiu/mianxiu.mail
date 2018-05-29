@@ -1,5 +1,5 @@
 {
-  "name": "mianxiu.mail",
+  "name": "mianxiumail",
   "scripts": {
       "start": "node server.js"
   },
