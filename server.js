@@ -14,7 +14,7 @@ const express = require('express');
 const AV = require('leanengine');
 const sgMail = require('@sendgrid/mail');
 
-const domin = "//mianxiu.me"
+const domin = "https//mianxiu.me"
 
 // 监听端口
 var app = express();
