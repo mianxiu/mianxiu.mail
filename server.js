@@ -1,14 +1,13 @@
-
 /**
- *  // 默认放在mixxopost.js 
- *  // 启动云引擎，用于收取新留言，推送到邮箱
-    let OpenCloudEngine = ()=>{
-          AV.Cloud.run().then(function(data) {
-            // 调用成功，得到成功的应答 data
-          }, function(err) {
-            // 处理调用失败
-        });
-    }
+ *  LeanCloud + SendGrid
+ *  部署在LeanCloud免费版云引擎的邮件推送服务
+ *  唤醒方法，调用 AV.Cloud.run
+ *  AV.Cloud.run('run').then(function (data) {
+                // 调用成功，得到成功的应答 data
+                console.log('EmailNoticEngine:run')
+            }, function (err) {
+                // 处理调用失败
+            });
  */
 
 const express = require('express');
