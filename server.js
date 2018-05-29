@@ -4,6 +4,10 @@ const sgMail = require('@sendgrid/mail');
 
 const domin = "//mianxiu.me"
 
+var app = express();
+app.use(AV.express());
+app.listen(process.env.LEANCLOUD_APP_PORT);
+
 AV.init({
     appId: process.env.LEANCLOUD_APP_ID,
     appKey: process.env.LEANCLOUD_APP_KEY,
