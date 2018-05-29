@@ -15,11 +15,11 @@ function sendMail(subject) {
     sgMail.send(msg);
 }
 
-
 AV.init({
     appId: process.env.LEANCLOUD_APP_ID,
-    appKey: process.env.LEANCLOUD_APP_KEY
-});
+    appKey: process.env.LEANCLOUD_APP_KEY,
+    masterKey: process.env.LEANCLOUD_APP_MASTER_KEY 
+  });
 
 // 部署在leancloud 云引擎
 function PushMailTips(pushMail) {
