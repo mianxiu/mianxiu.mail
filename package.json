@@ -1,5 +1,5 @@
 {
-  "name": "node-js-getting-started",
+  "name": "mianxiu.mail",
   "scripts": {
       "start": "node server.js"
   },
