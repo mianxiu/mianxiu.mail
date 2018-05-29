@@ -72,8 +72,9 @@ function PushMailTips(pushMail) {
                     let c = attr.comments
                     let n = attr.usernick
 
-                    let li = `<div style="background-color:#323232;border:1px solid red;border-radius:4px;padding:10px;">
-                        <a href="${u}">${decodeURI(attr.url.split('/')[5])}</a>
+                    let li = `<div style="background-color:#f8f8f8;border:1px solid #ececec;border-radius:4px;padding:10px;">
+                        <a style="    display: inline-block; color: #ffffffeb;text-decoration: none;padding: 10px;background-color: #2a96d8;
+                        margin: 5px;" href="${u}">${decodeURI(attr.url.split('/')[5])}</a>
                         <span>${n}</span>："${c}"
                         </div>`
 
