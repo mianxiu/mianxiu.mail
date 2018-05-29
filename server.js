@@ -7,7 +7,7 @@
             // 调用成功，得到成功的应答 data
           }, function(err) {
             // 处理调用失败
-          });
+        });
     }
  */
 
@@ -126,4 +126,6 @@ setInterval(()=>{
 
 
 
-
+AV.Cloud.define('run',request=>{
+    return true
+})
