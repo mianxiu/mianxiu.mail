@@ -106,10 +106,10 @@ function PushMailTips(pushMail) {
     GetCount()
 }
 
-// 定时拉取
+// 半小时定时拉取
 setInterval(()=>{
     PushMailTips('mianxiu@mianxiu.me')
-},900000)
+},1800000)
 
 
 
