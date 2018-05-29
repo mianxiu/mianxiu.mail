@@ -3,7 +3,9 @@
   "scripts": {
       "start": "node server.js"
   },
-  "engines":{ "node" : " > = 6.11.0 "},
+  "engines": {
+      "nod2e": "8.8"
+  },
   "dependencies": {
       "express": "4.12.3",
       "leanengine": "^3.0.2",
