@@ -86,7 +86,7 @@ function PushMailTips(pushMail) {
                 }
 
                  sendMail(a,html)
-                 writeLastPost('5b0b99ae2f301e00381813c5', e.createdAt)
+                // writeLastPost('5b0b99ae2f301e00381813c5', e.createdAt)
             }
 
         }, function (error) {
@@ -108,7 +108,7 @@ function PushMailTips(pushMail) {
 // 定时拉取
 setInterval(()=>{
     PushMailTips('mianxiu@mianxiu.me')
-},)
+},300000)
 
 
 
