@@ -14,7 +14,7 @@ const express = require('express');
 const AV = require('leanengine');
 const sgMail = require('@sendgrid/mail');
 
-const domin = "https//mianxiu.me"
+const domin = "https://mianxiu.me"
 
 // 监听端口
 var app = express();
@@ -78,8 +78,8 @@ function PushMailTips(pushMail) {
         query.find().then(r => {
             if (r.length > 0) {
                 let e = r[r.length - 1]         
-                
-                writeLastPost('5b0b99ae2f301e00381813c5', e.createdAt)
+                // +1s
+                writeLastPost('5b0b99ae2f301e00381813c5',new Date(Date.parse(e.createdAt)+1000))
                 let a = '你的BLOG有' + (r.length) + '条新留言'
                 let html = ''
                 for(i of r){
@@ -89,19 +89,16 @@ function PushMailTips(pushMail) {
                     let c = attr.comments
                     let n = attr.usernick
 
-                    let li = `<div style="marign:10px 0;background-color:#f8f8f8;border:1px solid #ececec;border-radius:4px;padding:10px;">
-                        <a style="border-radius: 4px;display: inline-block; color: #ffffff;text-decoration: none;padding: 10px;background-color: #2a96d8;
-                        margin: 5px;" href="${u}">${decodeURI(attr.url.split('/')[5])}</a>
+                    let li = `<div style="margin:10px 0;background-color:#f8f8f8;border:1px solid #ececec;border-radius:4px;padding:10px;">
+                        <a style="border-radius: 4px;display: inline-block; color: #ffffff;text-decoration: none;padding: 10px;background-color: #2a96d8;margin: 5px;" href="${u}">${decodeURI(attr.url.split('/')[5])}</a>
                         <span>${n}</span>："${c}"
                         <span style="margin:0 10px;" >${d}</span>
                         </div>`
 
                         html += li
                 }
-
                  sendMail(a,html)     
             }
-
         }, function (error) {
         });
     }
